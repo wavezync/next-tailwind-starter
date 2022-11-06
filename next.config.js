@@ -2,6 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-}
+};
 
-module.exports = nextConfig
+// add plugins
+module.exports = (_phase, { defaultConfig }) => {
+  const plugins = [];
+  return plugins.reduce((acc, plugin) => plugin(acc), { ...nextConfig });
+};

@@ -1,6 +1,6 @@
 {
-  "name": "analyst-builder-front",
-  "version": "0.1.0",
+  "name": "syetalabs-next-tailwind-starter",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",

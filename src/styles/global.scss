@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Refer: https://tailwindcss.com/docs/customizing-colors#using-css-variables
+// Use HSL colors as they are modern, in here you need to separate the commas as spaces
+// Check above url for more details
+
+// when defining colors, you must use --color- prefix to use them in tailwindcss with modifiers
+
+@layer base {
+  :root {
+    --color-primary: 197.53deg 89.9% 19.41%; // hsl(197.53, 89.9%, 19.41%)
+    --color-primary-focus: 198deg 83% 14%; // hsl(197.53, 89.9%, 19.41%)
+    --color-primary-hover: 195deg 81% 12%; // hsl(197.53, 89.9%, 19.41%)
+
+    --color-secondary: 190deg 76.47% 40%; // hsl(190, 76.47%, 40%)
+    --color-secondary-focus: 190deg 76.47% 35%; // hsl(190, 76.47%, 35%)
+    --color-secondary-hover: 190deg 76.47% 35%; // hsl(190, 76.47%, 35%)
+
+    --color-disabled: 0 0 80%; // hsl(0, 0, 80%)
+  }
+}

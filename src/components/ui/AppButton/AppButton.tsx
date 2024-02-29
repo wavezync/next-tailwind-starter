@@ -1,3 +1,4 @@
+import { cn } from '@/src/utils/cn';
 import clsx from 'clsx';
 import React from 'react';
 
@@ -68,7 +69,7 @@ const classes = {
   disabled:
     'disabled:text-app-disabled-text disabled:bg-app-disabled disabled:outline-1 disabled:outline-app-disabled-text disabled:cursor-not-allowed',
   outline: ({ variant }: AppButtonProps) => {
-    return clsx(
+    return cn(
       `!bg-transparent outline outline-2`,
       variant && outlineVarientClasses[variant],
     );
@@ -81,7 +82,7 @@ const classes = {
   },
 };
 
-const AppButton = React.forwardRef<HTMLButtonElement, AppButtonProps>(
+export const AppButton = React.forwardRef<HTMLButtonElement, AppButtonProps>(
   (props: AppButtonProps, ref) => {
     const {
       variant = 'primary',
@@ -103,7 +104,7 @@ const AppButton = React.forwardRef<HTMLButtonElement, AppButtonProps>(
 
     return (
       <button
-        className={clsx(
+        className={cn(
           classes.base,
           classes.variants[variant],
           isButtonDisabled && classes.disabled,
@@ -138,7 +139,3 @@ const AppButton = React.forwardRef<HTMLButtonElement, AppButtonProps>(
     );
   },
 );
-
-AppButton.displayName = 'AppButton';
-
-export default AppButton;

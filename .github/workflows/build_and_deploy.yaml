@@ -1,0 +1,78 @@
+# Name of project
+name: Build and Deploy Frontend
+
+on:
+  # Runs on pull requests targeting the default branch
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize]
+
+  push:
+    branches: [main]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Allow one concurrent deployment
+concurrency:
+  group: 'build-${{ github.ref }}'
+  cancel-in-progress: true
+
+jobs:
+  # Build job
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 8
+          run_install: false
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'pnpm'
+      - name: Restore cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            .next/cache
+          # Generate a new cache whenever packages or source files change.
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock', '**/pnpm-lock.yaml') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          # If source files changed but packages didn't, rebuild from a prior cache.
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock', '**/pnpm-lock.yaml') }}-
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Lint
+        run: pnpm lint
+      - name: Build
+        run: pnpm build
+
+  # Deploy preview job for staging
+  # deploy-preview-staging:
+  #   needs: [build]
+  #   if: github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'main'
+  #   uses: ./.github/workflows/deploy_preview.yaml
+  #   with:
+  #     vercel_env: preview
+  #   secrets:
+  #     vercel_org_id: ${{ secrets.VERCEL_ORG_ID }}
+  #     vercel_token: ${{ secrets.VERCEL_TOKEN }}
+  #     vercel_project_id: ${{ secrets.VERCEL_STAGING_PROJECT_ID }}
+
+  # deploy-staging:
+  #   if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+  #   needs: build
+  #   uses: ./.github/workflows/deploy_to_env.yaml
+  #   with:
+  #     environment: staging
+  #   secrets:
+  #     vercel_org_id: ${{ secrets.VERCEL_ORG_ID }}
+  #     vercel_token: ${{ secrets.VERCEL_TOKEN }}
+  #     vercel_project_id: ${{ secrets.VERCEL_STAGING_PROJECT_ID }}

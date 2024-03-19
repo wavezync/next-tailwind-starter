@@ -1,24 +1,32 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { AppButton } from './AppButton';
+import { AppButton } from './Button';
 import { ICON_MAP } from '../../../../.storybook/icons';
 
 const meta: Meta<typeof AppButton> = {
   component: AppButton,
   argTypes: {
-    variant: {
-      options: ['primary', 'secondary'],
+    intent: {
+      options: [
+        'primary',
+        'secondary',
+        'danger',
+        'warning',
+        'success',
+        'muted',
+        'tertiary',
+      ],
       control: { type: 'select' },
     },
     loadingText: {
       type: 'string',
     },
+    outline: {
+      type: 'boolean',
+    },
     size: {
       options: ['xs', 'sm', 'md', 'lg'],
       control: { type: 'select' },
-    },
-    outline: {
-      type: 'boolean',
     },
     disabled: {
       type: 'boolean',
@@ -48,13 +56,13 @@ type Story = StoryObj<typeof AppButton>;
 export const Primary: Story = {
   args: {
     children: 'Primary Button',
-    variant: 'primary',
+    intent: 'primary',
   },
 };
 
 export const Secondary: Story = {
   args: {
     children: 'Secondary Button',
-    variant: 'secondary',
+    intent: 'secondary',
   },
 };

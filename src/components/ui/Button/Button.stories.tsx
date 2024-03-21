@@ -1,35 +1,35 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { AppButton } from './Button';
-import { ICON_MAP } from '../../../../.storybook/icons';
+import { AppButton } from "./Button";
+import { ICON_MAP } from "../../../../.storybook/icons";
 
 const meta: Meta<typeof AppButton> = {
   component: AppButton,
   argTypes: {
     intent: {
       options: [
-        'primary',
-        'secondary',
-        'danger',
-        'warning',
-        'success',
-        'muted',
-        'tertiary',
+        "primary",
+        "secondary",
+        "danger",
+        "warning",
+        "success",
+        "muted",
+        "tertiary",
       ],
-      control: { type: 'select' },
+      control: { type: "select" },
     },
     loadingText: {
-      type: 'string',
+      type: "string",
     },
     outline: {
-      type: 'boolean',
+      type: "boolean",
     },
     size: {
-      options: ['xs', 'sm', 'md', 'lg'],
-      control: { type: 'select' },
+      options: ["xs", "sm", "md", "lg"],
+      control: { type: "select" },
     },
     disabled: {
-      type: 'boolean',
+      type: "boolean",
     },
     leftIcon: {
       options: Object.keys(ICON_MAP),
@@ -43,7 +43,7 @@ const meta: Meta<typeof AppButton> = {
   parameters: {
     docs: {
       description: {
-        component: 'A button created according to app guidelines',
+        component: "A button created according to app guidelines",
       },
     },
   },
@@ -55,14 +55,14 @@ type Story = StoryObj<typeof AppButton>;
 
 export const Primary: Story = {
   args: {
-    children: 'Primary Button',
-    intent: 'primary',
+    children: "Primary Button",
+    intent: "primary",
   },
 };
 
 export const Secondary: Story = {
   args: {
-    children: 'Secondary Button',
-    intent: 'secondary',
+    children: "Secondary Button",
+    intent: "secondary",
   },
 };

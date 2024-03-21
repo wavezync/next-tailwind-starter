@@ -1,9 +1,8 @@
-import { cn } from '@/src/utils/cn';
-import clsx from 'clsx';
-import React from 'react';
-import { VariantProps, cva, cx } from 'class-variance-authority';
+import { cn } from "@/src/utils/cn";
+import React from "react";
+import { VariantProps, cva } from "class-variance-authority";
 
-type ButtonSpinnerLocation = 'start' | 'end';
+type ButtonSpinnerLocation = "start" | "end";
 
 interface SpinnerProps {
   size?: number;
@@ -69,41 +68,41 @@ const DefaultSpinner = ({ size = SpinnerSizesMap.md }: SpinnerProps) => {
 
 export const buttonVariants = cva(
   [
-    'font-semibold rounded-lg transition-colors duration-300 focus:ring inline-flex items-center justify-center enabled:hover:shadow-md text-center',
-    'disabled:text-app-disabled-text disabled:bg-app-disabled disabled:outline-1 disabled:outline-app-disabled-text disabled:cursor-not-allowed',
+    "font-semibold rounded-lg transition-colors duration-300 focus:ring inline-flex items-center justify-center enabled:hover:shadow-md text-center",
+    "disabled:text-app-disabled-text disabled:bg-app-disabled disabled:outline-1 disabled:outline-app-disabled-text disabled:cursor-not-allowed",
   ],
   {
     variants: {
       intent: {
         primary:
-          'bg-app-primary text-app-primary-text enabled:hover:bg-app-primary-hover focus:outline-none focus:ring-app-primary-focus',
+          "bg-app-primary text-app-primary-text enabled:hover:bg-app-primary-hover focus:outline-none focus:ring-app-primary-focus",
         secondary:
-          'bg-app-secondary text-app-secondary-text enabled:hover:bg-app-secondary-hover focus:outline-none focus:ring-app-secondary-focus',
+          "bg-app-secondary text-app-secondary-text enabled:hover:bg-app-secondary-hover focus:outline-none focus:ring-app-secondary-focus",
         tertiary:
-          'bg-app-tertiary text-app-tertiary-text enabled:hover:bg-app-tertiary-hover focus:outline-none focus:ring-app-tertiary-focus',
+          "bg-app-tertiary text-app-tertiary-text enabled:hover:bg-app-tertiary-hover focus:outline-none focus:ring-app-tertiary-focus",
         muted:
-          'bg-app-muted text-app-muted-text enabled:hover:bg-app-muted-hover focus:outline-none focus:ring-app-muted-focus',
+          "bg-app-muted text-app-muted-text enabled:hover:bg-app-muted-hover focus:outline-none focus:ring-app-muted-focus",
         warning:
-          'bg-app-warning text-app-warning-text enabled:hover:bg-app-warning-hover focus:outline-none focus:ring-app-warning-focus',
+          "bg-app-warning text-app-warning-text enabled:hover:bg-app-warning-hover focus:outline-none focus:ring-app-warning-focus",
         danger:
-          'bg-app-danger text-app-danger-text enabled:hover:bg-app-danger-hover focus:outline-none focus:ring-app-danger-focus',
+          "bg-app-danger text-app-danger-text enabled:hover:bg-app-danger-hover focus:outline-none focus:ring-app-danger-focus",
         success:
-          'bg-app-success text-app-success-text enabled:hover:bg-app-success-hover focus:outline-none focus:ring-app-success-focus',
+          "bg-app-success text-app-success-text enabled:hover:bg-app-success-hover focus:outline-none focus:ring-app-success-focus",
       },
       size: {
-        xs: 'text-xs px-2 py-2',
-        sm: 'text-sm px-3 py-2',
-        md: 'text-md px-6 py-2',
-        lg: 'text-lg px-8 py-3',
+        xs: "text-xs px-2 py-2",
+        sm: "text-sm px-3 py-2",
+        md: "text-md px-6 py-2",
+        lg: "text-lg px-8 py-3",
       },
       outline: {
-        true: 'bg-transparent outline outline-2',
+        true: "bg-transparent outline outline-2",
         false: undefined,
       },
     },
     defaultVariants: {
-      intent: 'primary',
-      size: 'md',
+      intent: "primary",
+      size: "md",
     },
   },
 );
@@ -111,7 +110,7 @@ export const buttonVariants = cva(
 export type ButtonVariantProps = VariantProps<typeof buttonVariants>;
 
 export interface AppButtonProps
-  extends React.ComponentPropsWithRef<'button'>,
+  extends React.ComponentPropsWithRef<"button">,
     ButtonVariantProps {
   className?: string;
   isLoading?: boolean;
@@ -127,12 +126,12 @@ export const AppButton = React.forwardRef<HTMLButtonElement, AppButtonProps>(
     const {
       intent,
       outline,
-      size = 'md',
-      spinner = <DefaultSpinner size={SpinnerSizesMap['md']} />,
-      spinnerLocation = 'start',
+      size = "md",
+      spinner = <DefaultSpinner size={SpinnerSizesMap["md"]} />,
+      spinnerLocation = "start",
       children,
       className,
-      loadingText = 'Loading...',
+      loadingText = "Loading...",
       isLoading,
       disabled,
       leftIcon,
@@ -150,7 +149,7 @@ export const AppButton = React.forwardRef<HTMLButtonElement, AppButtonProps>(
             size,
             outline,
             className: [
-              { 'flex-row-reverse': isLoading && spinnerLocation === 'end' },
+              { "flex-row-reverse": isLoading && spinnerLocation === "end" },
               className,
             ],
           }),
@@ -170,7 +169,7 @@ export const AppButton = React.forwardRef<HTMLButtonElement, AppButtonProps>(
             {spinner}
             {loadingText && (
               <span
-                className={clsx(spinnerLocation === 'start' ? 'ml-2' : 'mr-2')}
+                className={cn(spinnerLocation === "start" ? "ml-2" : "mr-2")}
               >
                 {loadingText}
               </span>
@@ -181,3 +180,5 @@ export const AppButton = React.forwardRef<HTMLButtonElement, AppButtonProps>(
     );
   },
 );
+
+AppButton.displayName = "AppButton";

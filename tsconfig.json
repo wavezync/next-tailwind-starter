@@ -26,42 +26,36 @@
       "@components/common": [
         "./components/common/*"
       ],
+      "@ui": [
+        "./components/ui/*"
+      ],
       "@api/*": [
         "./lib/api/*"
       ],
       "@hooks/*": [
         "./hooks/*"
       ],
-      "@storybookUtil/*": [
-        "./.storybook/*"
-      ],
       "@/*": [
         "./*"
       ],
-      "~components/*": [
-        "./components/*"
-      ],
-      "~components/common": [
-        "./components/common/*"
-      ],
-      "~api/*": [
-        "./lib/api/*"
-      ],
-      "~hooks/*": [
-        "./hooks/*"
-      ],
-      "~/*": [
-        "./*"
-      ],
-      "@@/*": [
-        "./*"
-      ]
-    }
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/@types"
+    ]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "src",
+    ".next/types/**/*.ts",
+    "scripts/**/*.ts"
   ],
   "exclude": [
     "node_modules"

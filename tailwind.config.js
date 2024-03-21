@@ -57,9 +57,13 @@ module.exports = {
       // add fonts here
       fontFamily: {
         // overriding default font
-        sans: ["DM Sans", defaultTheme.fontFamily.sans],
+        sans: ["var(--font-inter)", defaultTheme.fontFamily.sans],
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/container-queries"),
+  ],
 };

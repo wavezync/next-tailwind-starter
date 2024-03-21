@@ -1,11 +1,11 @@
-import Head from "next/head";
-import Image from "next/image";
-import { AppButton } from "../components/ui/Button/Button";
+import { NextSeo } from "next-seo";
+import { HomePage } from "../components/home/HomePage";
 
 export default function Home() {
   return (
     <>
-      <AppButton intent="primary">Test</AppButton>
+      <NextSeo title="Home" />
+      <HomePage />
     </>
   );
 }

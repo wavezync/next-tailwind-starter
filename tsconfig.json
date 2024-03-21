@@ -46,7 +46,8 @@
     ],
     "typeRoots": [
       "./node_modules/@types",
-      "./src/@types"
+      "./src/@types",
+      "./src/lib/api/@types"
     ]
   },
   "include": [

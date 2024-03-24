@@ -21,22 +21,25 @@
     "baseUrl": "./",
     "paths": {
       "@components/*": [
-        "./components/*"
+        "./src/components/*"
       ],
       "@components/common": [
-        "./components/common/*"
+        "./src/components/common/*"
       ],
       "@ui": [
-        "./components/ui/*"
+        "./src/components/ui/*"
       ],
       "@api/*": [
-        "./lib/api/*"
+        "./src/lib/api/*"
       ],
       "@hooks/*": [
-        "./hooks/*"
+        "./src/hooks/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
       ],
       "@/*": [
-        "./*"
+        "./src/*"
       ],
     },
     "plugins": [

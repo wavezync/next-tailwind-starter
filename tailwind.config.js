@@ -10,7 +10,7 @@ module.exports = {
       // use heirarchical colors to define colors with same prefix
       colors: {
         "app-primary": {
-          DEFAULT: "hsl(var(--color-primary) / <alpha-value>)", // default color when no variant is used
+          DEFAULT: "hsl(var(--color-primary) / <alpha-value>)", // default color when no suffix is used
           focus: "hsl(var(--color-primary-focus) / <alpha-value>)",
           hover: "hsl(var(--color-primary-hover) / <alpha-value>)",
           text: "hsl(var(--color-primary-text) / <alpha-value>)",
@@ -53,6 +53,8 @@ module.exports = {
         },
 
         "app-disabled": "hsl(var(--color-disabled) / <alpha-value>)",
+        "app-bg": "hsl(var(--color-background) / <alpha-value>)",
+        "app-textbox": "hsl(var(--color-textbox) / <alpha-value>)",
       },
       // add fonts here
       fontFamily: {

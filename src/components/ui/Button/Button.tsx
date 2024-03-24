@@ -1,6 +1,6 @@
-import { cn } from "@/src/utils/cn";
 import React from "react";
 import { VariantProps, cva } from "class-variance-authority";
+import { cn } from "@utils/cn";
 
 type ButtonSpinnerLocation = "start" | "end";
 
@@ -36,39 +36,9 @@ const DefaultSpinner = ({ size = SpinnerSizesMap.md }: SpinnerProps) => {
  * modifier "!" used to override any styles from base(for example in outlined buttons)
  */
 
-// const outlineVarientClasses: Record<ButtonVariants, string> = {
-//   primary:
-//     'outline-app-primary-outlined enabled:hover:!bg-app-primary-outlined-hover !text-white',
-//   secondary:
-//     'outline-app-secondary-outlined enabled:hover:!bg-app-secondary-outlined-hover !text-app-secondary',
-// };
-
-// const classes = {
-//   base: `font-semibold rounded-lg transition-colors duration-300 focus:ring inline-flex items-center justify-center enabled:hover:shadow-md text-center`,
-//   variants: {
-//     primary:
-//       'bg-app-primary text-app-secondary enabled:hover:bg-app-primary-hover focus:outline-none focus:ring-app-primary-focus',
-//     secondary:
-//       'bg-app-secondary text-white enabled:hover:bg-app-secondary-hover focus:outline-none focus:ring-app-secondary-focus',
-//   },
-//   disabled: '',
-//   outline: ({ variant }: AppButtonProps) => {
-//     return cn(
-//       `!bg-transparent outline outline-2`,
-//       variant && outlineVarientClasses[variant],
-//     );
-//   },
-//   sizes: {
-//     xs: 'text-xs px-2 py-2',
-//     sm: 'text-sm px-3 py-2',
-//     md: 'text-md px-6 py-2',
-//     lg: 'text-lg px-8 py-3',
-//   },
-// };
-
 export const buttonVariants = cva(
   [
-    "font-semibold rounded-lg transition-colors duration-300 focus:ring inline-flex items-center justify-center enabled:hover:shadow-md text-center",
+    "rounded-lg transition-colors duration-300 focus:ring inline-flex items-center justify-center enabled:hover:shadow-md text-center",
     "disabled:text-app-disabled-text disabled:bg-app-disabled disabled:outline-1 disabled:outline-app-disabled-text disabled:cursor-not-allowed",
   ],
   {
@@ -94,16 +64,65 @@ export const buttonVariants = cva(
         sm: "text-sm px-3 py-2",
         md: "text-md px-6 py-2",
         lg: "text-lg px-8 py-3",
+        xl: "text-xl px-10 py-4",
       },
+
       outline: {
-        true: "bg-transparent outline outline-2",
-        false: undefined,
+        false: "",
+        true: "!bg-transparent outline outline-2 outline-inherit",
+      },
+
+      shape: {
+        default: "",
+        rounded: "rounded",
+        "rounded-sm": "rounded-sm",
+        "rounded-md": "rounded-md",
+        "rounded-lg": "rounded-lg",
+        pill: "rounded-full",
       },
     },
     defaultVariants: {
       intent: "primary",
       size: "md",
+      shape: "default",
     },
+    compoundVariants: [
+      {
+        intent: "primary",
+        outline: true,
+        className: "enabled:hover:!bg-app-primary/20 !text-app-primary",
+      },
+      {
+        intent: "secondary",
+        outline: true,
+        className: "enabled:hover:!bg-app-secondary/20 !text-app-secondary",
+      },
+      {
+        intent: "tertiary",
+        outline: true,
+        className: "enabled:hover:!bg-app-tertiary/20 !text-app-tertiary",
+      },
+      {
+        intent: "muted",
+        outline: true,
+        className: "enabled:hover:!bg-app-muted/20 !text-app-muted",
+      },
+      {
+        intent: "warning",
+        outline: true,
+        className: "enabled:hover:!bg-app-warning/20 !text-app-warning",
+      },
+      {
+        intent: "danger",
+        outline: true,
+        className: "enabled:hover:!bg-app-danger/20 !text-app-danger",
+      },
+      {
+        intent: "success",
+        outline: true,
+        className: "enabled:hover:!bg-app-success/20 text-app-success",
+      },
+    ],
   },
 );
 
@@ -126,6 +145,7 @@ export const AppButton = React.forwardRef<HTMLButtonElement, AppButtonProps>(
     const {
       intent,
       outline,
+      shape,
       size = "md",
       spinner = <DefaultSpinner size={SpinnerSizesMap["md"]} />,
       spinnerLocation = "start",
@@ -147,6 +167,7 @@ export const AppButton = React.forwardRef<HTMLButtonElement, AppButtonProps>(
           buttonVariants({
             intent,
             size,
+            shape,
             outline,
             className: [
               { "flex-row-reverse": isLoading && spinnerLocation === "end" },

@@ -10,6 +10,7 @@ import { Inter } from "next/font/google";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import Head from "next/head";
 import { DefaultSeo, DefaultSeoProps } from "next-seo";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -64,7 +65,9 @@ export default function App({ Component, pageProps }: AppProps) {
             <meta name="theme-color" content="#ffffff" />
           </Head>
           <DefaultSeo {...seoConfig} />
-          <Component {...pageProps} />
+          <ThemeProvider>
+            <Component {...pageProps} />
+          </ThemeProvider>
           <div>
             <ReactQueryDevtools />
           </div>

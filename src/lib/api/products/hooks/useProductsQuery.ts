@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 
 import { productKeys } from "../productKeys";
-import { CommonQueryOptions } from "@/src/lib/common/queryOptions";
 import { fetchProductsList } from "../productService";
+import { CommonQueryOptions } from "@/lib/common/queryOptions";
 
 interface ProductQueryParams {
   search?: string;

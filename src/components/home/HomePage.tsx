@@ -1,4 +1,7 @@
-import { useProductsQuery } from "@/src/lib/api/products/hooks/useProductsQuery";
+import { useTheme } from "@/contexts/ThemeContext";
+import { useProductsQuery } from "@api/products/hooks/useProductsQuery";
+import { AppButton } from "@components/ui/Button/Button";
+import { Input } from "@components/ui/Input/Input";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -7,17 +10,36 @@ export const HomePage = () => {
   const { data, isLoading } = useProductsQuery({
     search,
   });
+  const { theme, setTheme } = useTheme();
+
+  const toggleTheme = () => {
+    if (theme === "light") {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
 
   return (
-    <div className="flex h-screen flex-col">
-      <div className="flex flex-row justify-center">
-        <div className="flex flex-col">
-          <h1 className="text-center text-2xl font-bold">Products</h1>
+    <div className="flex h-screen flex-col ">
+      <div className="bg-app-bg flex flex-row justify-center">
+        <div className=" flex min-w-96 flex-col">
+          <h1 className="flex justify-center p-5 text-center align-middle text-5xl font-bold text-app-primary-text">
+            Products
+            <AppButton
+              className="ml-2"
+              onClick={toggleTheme}
+              intent="primary"
+              size="sm"
+              outline
+            >
+              {theme === "light" ? "Dark" : "Light"}
+            </AppButton>
+          </h1>
           <div className="my-3">
-            <input
+            <Input
               type="text"
               placeholder="Search..."
-              className="w-full rounded-md"
               onChange={(e) => {
                 setSearch(e.target.value);
               }}
@@ -29,7 +51,7 @@ export const HomePage = () => {
               {data.products.map((p) => (
                 <div
                   key={p.id}
-                  className="mb-2 flex w-96  rounded-md p-2 outline transition-all hover:-translate-y-1 hover:bg-app-tertiary-hover/10"
+                  className="mb-2 flex w-96 rounded-md p-2 text-app-primary-text outline transition-all hover:-translate-y-0.5 hover:bg-app-secondary-hover/20"
                 >
                   <div className="relative h-24 w-32">
                     <Image
@@ -49,7 +71,7 @@ export const HomePage = () => {
                       <span className="pl-1 text-sm font-light italic">
                         {p.price / 100} $
                       </span>
-                      <div className="w-fit rounded-lg bg-app-primary px-1 py-0.5 font-mono text-sm italic text-white">
+                      <div className="w-fit rounded-lg bg-app-tertiary/40 px-1 py-0.5 font-mono text-sm italic text-app-primary-text">
                         {p.brand}
                       </div>
                     </div>

@@ -20,12 +20,15 @@ const meta: Meta<typeof AppButton> = {
     },
     loadingText: {
       type: "string",
+      defaultValue: "Loading...",
     },
     outline: {
       type: "boolean",
+      defaultValue: false,
     },
     size: {
-      options: ["xs", "sm", "md", "lg"],
+      options: ["xs", "sm", "md", "lg", "xl"],
+      defaultValue: "md",
       control: { type: "select" },
     },
     disabled: {
@@ -38,6 +41,18 @@ const meta: Meta<typeof AppButton> = {
     rightIcon: {
       options: Object.keys(ICON_MAP),
       mapping: ICON_MAP,
+    },
+    shape: {
+      options: [
+        "default",
+        "pill",
+        "rounded",
+        "rounded-sm",
+        "rounded-md",
+        "rounded-lg",
+      ],
+      defaultValue: "default",
+      control: { type: "select" },
     },
   },
   parameters: {

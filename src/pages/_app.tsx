@@ -5,12 +5,21 @@ import {
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
-import { useState } from "react";
+import { ReactElement, ReactNode, useState } from "react";
 import { Inter } from "next/font/google";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import Head from "next/head";
 import { DefaultSeo, DefaultSeoProps } from "next-seo";
 import { ThemeProvider } from "@/contexts/ThemeContext";
+import { NextPage } from "next/types";
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,8 +35,10 @@ const seoConfig: DefaultSeoProps = {
   openGraph: {},
 };
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout = Component.getLayout ?? ((page) => page);
   const [queryClient] = useState(() => new QueryClient({}));
+
   return (
     <QueryClientProvider client={queryClient}>
       <HydrationBoundary state={pageProps?.dehydratedState}>
@@ -66,7 +77,7 @@ export default function App({ Component, pageProps }: AppProps) {
           </Head>
           <DefaultSeo {...seoConfig} />
           <ThemeProvider>
-            <Component {...pageProps} />
+            {getLayout(<Component {...pageProps} />)}
           </ThemeProvider>
           <div>
             <ReactQueryDevtools />

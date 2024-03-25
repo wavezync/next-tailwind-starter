@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "prepare": "husky install",
+    "prepare": "husky",
     "pre-commit": "lint-staged",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"

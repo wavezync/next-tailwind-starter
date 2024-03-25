@@ -22,7 +22,7 @@ export const HomePage = () => {
 
   return (
     <div className="flex h-screen flex-col ">
-      <div className="bg-app-bg flex flex-row justify-center">
+      <div className="flex flex-row justify-center bg-app-bg">
         <div className=" flex min-w-96 flex-col">
           <div className="m-5 text-center text-app-primary-text">
             Welcome to WaveZync NextJS Tailwind StarterKit. <br /> You can
@@ -60,7 +60,7 @@ export const HomePage = () => {
               {data.products.map((p) => (
                 <div
                   key={p.id}
-                  className="mb-2 flex w-full max-w-xl   rounded-md p-2 align-middle text-app-primary-text outline transition-all hover:-translate-y-0.5 hover:bg-app-secondary-hover/20"
+                  className="mb-2 flex w-full max-w-xl rounded-md p-2 align-middle text-app-primary-text outline transition-all hover:-translate-y-0.5 hover:bg-app-secondary-hover/20"
                 >
                   <div className="relative h-24 w-32">
                     <Image

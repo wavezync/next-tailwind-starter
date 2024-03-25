@@ -2,6 +2,14 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    remotePatterns: [
+      {
+        // add remote patterns here
+        hostname: 'cdn.dummyjson.com'
+      }
+    ]
+  }
 };
 
 // add plugins

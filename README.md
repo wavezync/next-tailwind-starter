@@ -1,32 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# WaveZync NextJS TailwindCSS StarterKit 🌊
 
-## Getting Started
+This is a starter kit for NextJS with TailwindCSS. It includes a basic setup for a NextJS project with TailwindCSS and some common components and utilities.
 
-First, run the development server:
+## Installation 🚀
+
+1. You need NodeJS 20+ installed on your machine.
+2. You also need to install [PNPM package manager](https://pnpm.io/installation).
+3. Run `pnpm install` to install the dependencies.
+4. Copy the `.env.example` file to `.env` and add the required environment variables.
+5. Run `pnpm dev` to start the development server.
+
+## Preparing VSCode 🤖
+
+There are recommended extensions for VSCode that you can install to make development easier. You can find the recommended extensions in the `.vscode/extensions.json` file.
+
+VSCode will prompt you to install the recommended extensions when you open the project. You can also install them manually by clicking on the `Install All` button in the prompt.
+
+## Storybook 📚
+
+We are using Storybook for building and testing components in isolation. To run Storybook, run `pnpm storybook`.
+
+## React Query 🎁
+
+Please follow the key factory pattern for the query keys. This will help in maintaining the cache. For more information, check the [TkDodo's Blog](https://tkdodo.eu/blog/effective-react-query-keys#use-query-key-factories).
+
+## Installed Packages 📦
+
+- **[tanstack/query:](https://tanstack.com/query)** For data fetching and caching. Check the query key pattern to maintain the cache.
+- **[axios:](https://axios-http.com/docs/intro)** For making API requests.
+- **[react-hook-form:](https://react-hook-form.com/)** For form handling.
+- **[tailwindcss:](https://tailwindcss.com/)** For styling.
+- **[Radix UI:](https://www.radix-ui.com/)** For building accessible UI components.
+- **[Storybook:](https://storybook.js.org/)** For building and testing components in isolation.
+
+## Folder Structure 📁
 
 ```bash
-pnpm run dev
+.
+├── bin # Scripts
+├── public # Static files
+└── src # Source code
+    ├── @types # Typescript types
+    ├── components # Reusable components
+    │   ├── home # example Home page components(add more component folders as needed)
+    │   └── ui # UI components
+    │       ├── Button
+    │       ├── Forms
+    │       │   └── FormAlert
+    │       └── Input
+    ├── contexts # React Contexts and Providers with hooks
+    ├── hooks # Custom hooks
+    ├── layouts # Page layouts
+    ├── lib # Utility functions
+    │   ├── api # API functions
+    │   │   ├── @types # API types
+    │   │   └── products # Example API
+    │   │       └── hooks # API hooks with React Query
+    │   └── common # Common types and functions
+    ├── pages # NextJS pages
+    ├── styles # TailwindCSS styles
+    └── utils # Utility functions
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Favicons 🌟
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Use [https://realfavicongenerator.net/](https://realfavicongenerator.net/) to generate favicons and add them to the `public` folder.

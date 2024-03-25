@@ -1,11 +1,17 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { AppButton } from '../components/ui/AppButton/AppButton';
+import { NextSeo } from "next-seo";
+import { HomePage } from "../components/home/HomePage";
+import { ReactElement } from "react";
+import DefaultLayout from "@/layouts/DefaultLayout";
 
 export default function Home() {
   return (
     <>
-      <AppButton variant="primary">Test</AppButton>
+      <NextSeo title="Home" />
+      <HomePage />
     </>
   );
 }
+
+Home.getLayout = function getLayout(page: ReactElement) {
+  return <DefaultLayout>{page}</DefaultLayout>;
+};

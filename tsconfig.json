@@ -21,47 +21,45 @@
     "baseUrl": "./",
     "paths": {
       "@components/*": [
-        "./components/*"
+        "./src/components/*"
       ],
       "@components/common": [
-        "./components/common/*"
+        "./src/components/common/*"
+      ],
+      "@ui": [
+        "./src/components/ui/*"
       ],
       "@api/*": [
-        "./lib/api/*"
+        "./src/lib/api/*"
       ],
       "@hooks/*": [
-        "./hooks/*"
+        "./src/hooks/*"
       ],
-      "@storybookUtil/*": [
-        "./.storybook/*"
+      "@utils/*": [
+        "./src/utils/*"
       ],
       "@/*": [
-        "./*"
+        "./src/*"
       ],
-      "~components/*": [
-        "./components/*"
-      ],
-      "~components/common": [
-        "./components/common/*"
-      ],
-      "~api/*": [
-        "./lib/api/*"
-      ],
-      "~hooks/*": [
-        "./hooks/*"
-      ],
-      "~/*": [
-        "./*"
-      ],
-      "@@/*": [
-        "./*"
-      ]
-    }
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/@types",
+      "./src/lib/api/@types"
+    ]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "src",
+    ".next/types/**/*.ts",
+    "scripts/**/*.ts"
   ],
   "exclude": [
     "node_modules"

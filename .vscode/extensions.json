@@ -1,6 +1,10 @@
 {
   "recommendations": [
     "csstools.postcss",
-    "bradlc.vscode-tailwindcss"
+    "bradlc.vscode-tailwindcss",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "austenc.tailwind-docs",
+    "editorconfig.editorconfig",
   ]
 }

@@ -15,7 +15,7 @@ on:
 
 # Allow one concurrent deployment
 concurrency:
-  group: 'build-${{ github.ref }}'
+  group: "build-${{ github.ref }}"
   cancel-in-progress: true
 
 jobs:
@@ -35,8 +35,8 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
-          cache: 'pnpm'
+          node-version: "18"
+          cache: "pnpm"
       - name: Restore cache
         uses: actions/cache@v3
         with:
@@ -52,6 +52,8 @@ jobs:
       - name: Lint
         run: pnpm lint
       - name: Build
+        env:
+          NEXT_PUBLIC_API_BASE_URL: https://api.example.com
         run: pnpm build
 
   # Deploy preview job for staging

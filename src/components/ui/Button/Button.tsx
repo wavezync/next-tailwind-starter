@@ -128,7 +128,7 @@ export const buttonVariants = cva(
 
 export type ButtonVariantProps = VariantProps<typeof buttonVariants>;
 
-export interface AppButtonProps
+export interface ButtonProps
   extends React.ComponentPropsWithRef<"button">,
     ButtonVariantProps {
   className?: string;
@@ -140,8 +140,8 @@ export interface AppButtonProps
   rightIcon?: React.ReactElement;
 }
 
-export const AppButton = React.forwardRef<HTMLButtonElement, AppButtonProps>(
-  (props: AppButtonProps, ref) => {
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (props: ButtonProps, ref) => {
     const {
       intent,
       outline,
@@ -202,4 +202,4 @@ export const AppButton = React.forwardRef<HTMLButtonElement, AppButtonProps>(
   },
 );
 
-AppButton.displayName = "AppButton";
+Button.displayName = "Button";

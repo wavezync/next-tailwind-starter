@@ -54,7 +54,10 @@ module.exports = {
 
         "app-disabled": "hsl(var(--color-disabled) / <alpha-value>)",
         "app-bg": "hsl(var(--color-background) / <alpha-value>)",
-        "app-textbox": "hsl(var(--color-textbox) / <alpha-value>)",
+        "app-textbox": {
+          DEFAULT: "hsl(var(--color-textbox) / <alpha-value>)",
+          placeholder: "hsl(var(--color-textbox-placeholder) / <alpha-value>)",
+        },
       },
       // add fonts here
       fontFamily: {

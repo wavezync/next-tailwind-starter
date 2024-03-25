@@ -1,6 +1,6 @@
 import { useTheme } from "@/contexts/ThemeContext";
 import { useProductsQuery } from "@api/products/hooks/useProductsQuery";
-import { AppButton } from "@components/ui/Button/Button";
+import { Button } from "@components/ui/Button/Button";
 import { Input } from "@components/ui/Input/Input";
 import Image from "next/image";
 import { useState } from "react";
@@ -26,7 +26,7 @@ export const HomePage = () => {
         <div className=" flex min-w-96 flex-col">
           <h1 className="flex justify-center p-5 text-center align-middle text-5xl font-bold text-app-primary-text">
             Products
-            <AppButton
+            <Button
               className="ml-2"
               onClick={toggleTheme}
               intent="primary"
@@ -34,7 +34,7 @@ export const HomePage = () => {
               outline
             >
               {theme === "light" ? "Dark" : "Light"}
-            </AppButton>
+            </Button>
           </h1>
           <div className="my-3">
             <Input

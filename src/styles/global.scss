@@ -9,89 +9,111 @@
 // when defining colors, you must use --color- prefix to use them in tailwindcss with modifiers
 
 @mixin theme-dark {
-  /* Updated Dark Theme Variables */
-  --color-primary: 197.53deg 89.9% 15%; /* Darker shade for primary */
-  --color-primary-focus: 198deg 83% 12%; /* Even darker for focus state */
-  --color-primary-hover: 195deg 81% 10%; /* Darkest for hover state */
-  --color-primary-text: 0 0% 100%; /* White text for contrast */
+  /* Dark Theme Variables */
 
-  --color-secondary: 190deg 76.47% 30%; /* Darker shade for secondary */
-  --color-secondary-focus: 190deg 76.47% 25%; /* Even darker for focus state */
-  --color-secondary-hover: 190deg 76.47% 20%; /* Darkest for hover state */
-  --color-secondary-text: 0 0% 100%; /* White text for contrast */
+  /* Primary color shades */
+  --color-primary: 197.53deg 89.9% 15%; /* Primary base color */
+  --color-primary-focus: 198deg 83% 12%; /* Focus state: even darker */
+  --color-primary-hover: 195deg 81% 10%; /* Hover state: darkest */
+  --color-primary-text: 0deg 0% 100%; /* Text on primary: white for contrast */
 
-  --color-tertiary: 287deg 99% 39%; /* Adjusted darker for tertiary */
-  --color-tertiary-focus: 287deg 99% 34%; /* Even darker for focus state */
-  --color-tertiary-hover: 287deg 99% 29%; /* Darkest for hover state */
-  --color-tertiary-text: 0 0% 100%; /* White text for contrast */
+  /* Secondary color shades */
+  --color-secondary: 190deg 76.47% 30%; /* Secondary base color */
+  --color-secondary-focus: 190deg 76.47% 25%; /* Focus state: even darker */
+  --color-secondary-hover: 190deg 76.47% 20%; /* Hover state: darkest */
+  --color-secondary-text: 0deg 0% 100%; /* Text on secondary: white for contrast */
 
-  --color-danger: 0 100% 40%; /* Adjusted darker for danger */
-  --color-danger-focus: 0 100% 35%; /* Even darker for focus state */
-  --color-danger-hover: 0 100% 30%; /* Darkest for hover state */
-  --color-danger-text: 0 0% 100%; /* White text for contrast */
+  /* Tertiary color shades */
+  --color-tertiary: 287deg 99% 39%; /* Tertiary base color */
+  --color-tertiary-focus: 287deg 99% 34%; /* Focus state: even darker */
+  --color-tertiary-hover: 287deg 99% 29%; /* Hover state: darkest */
+  --color-tertiary-text: 0deg 0% 100%; /* Text on tertiary: white for contrast */
 
-  --color-warning: 40 100% 40%; /* Adjusted darker for warning */
-  --color-warning-focus: 40 100% 35%; /* Even darker for focus state */
-  --color-warning-hover: 40 100% 30%; /* Darkest for hover state */
-  --color-warning-text: 0 0% 100%; /* White text for contrast */
+  /* Danger color shades */
+  --color-danger: 0deg 100% 40%; /* Danger base color */
+  --color-danger-focus: 0deg 100% 35%; /* Focus state: even darker */
+  --color-danger-hover: 0deg 100% 30%; /* Hover state: darkest */
+  --color-danger-text: 0deg 0% 100%; /* Text on danger: white for contrast */
 
-  --color-success: 120 100% 20%; /* Adjusted darker for success */
-  --color-success-focus: 120 100% 15%; /* Even darker for focus state */
-  --color-success-hover: 120 100% 10%; /* Darkest for hover state */
-  --color-success-text: 0 0% 100%; /* White text for contrast */
+  /* Warning color shades */
+  --color-warning: 40deg 100% 40%; /* Warning base color */
+  --color-warning-focus: 40deg 100% 35%; /* Focus state: even darker */
+  --color-warning-hover: 40deg 100% 30%; /* Hover state: darkest */
+  --color-warning-text: 0deg 0% 100%; /* Text on warning: white for contrast */
 
-  --color-muted: 0 0% 70%; /* Adjusted darker for muted */
-  --color-muted-focus: 0 0% 65%; /* Even darker for focus state */
-  --color-muted-hover: 0 0% 60%; /* Darkest for hover state */
-  --color-muted-text: 0 0% 100%; /* White text for contrast */
+  /* Success color shades */
+  --color-success: 120deg 100% 20%; /* Success base color */
+  --color-success-focus: 120deg 100% 15%; /* Focus state: even darker */
+  --color-success-hover: 120deg 100% 10%; /* Hover state: darkest */
+  --color-success-text: 0deg 0% 100%; /* Text on success: white for contrast */
 
-  --color-disabled: 0 0% 50%; /* Adjusted darker for disabled */
+  /* Muted color shades */
+  --color-muted: 0deg 0% 70%; /* Muted base color */
+  --color-muted-focus: 0deg 0% 65%; /* Focus state: even darker */
+  --color-muted-hover: 0deg 0% 60%; /* Hover state: darkest */
+  --color-muted-text: 0deg 0% 100%; /* Text on muted: white for contrast */
 
-  --color-background: 210deg 30% 8%; /* A deep, muted blue for a rich, dark background */
-  --color-textbox: 210deg 30% 10%; /* A slightly lighter shade for text boxes */
+  /* Disabled and background shades */
+  --color-disabled: 0deg 0% 50%; /* Disabled elements color */
+
+  /* Background and textbox shades */
+  --color-background: 210deg 30% 8%; /* Main background: deep, muted blue */
+  --color-textbox: 210deg 30% 10%; /* Textbox background: slightly lighter */
+  --color-textbox-placeholder: 210deg 30% 30%; /* Placeholder text: lighter */
 }
 
 @mixin theme-light {
   /* Light Theme Variables */
-  --color-primary: 197.53deg 89.9% 55%; /* Lighter shade for primary */
-  --color-primary-focus: 198deg 83% 60%; /* Slightly lighter for focus state */
-  --color-primary-hover: 195deg 81% 65%; /* Lightest for hover state */
-  --color-primary-text: 0 0% 20%; /* Dark text for contrast */
 
-  --color-secondary: 190deg 76.47% 60%; /* Lighter shade for secondary */
-  --color-secondary-focus: 190deg 76.47% 65%; /* Slightly lighter for focus state */
-  --color-secondary-hover: 190deg 76.47% 70%; /* Lightest for hover state */
-  --color-secondary-text: 0 0% 20%; /* Dark text for contrast */
+  /* Primary color shades */
+  --color-primary: 197.53deg 89.9% 55%; /* Primary base color */
+  --color-primary-focus: 198deg 83% 60%; /* Focus state: slightly lighter */
+  --color-primary-hover: 195deg 81% 65%; /* Hover state: lightest */
+  --color-primary-text: 0deg 0% 20%; /* Text on primary: dark for contrast */
 
-  --color-tertiary: 287deg 99% 69%; /* Lighter shade for tertiary */
-  --color-tertiary-focus: 287deg 99% 74%; /* Slightly lighter for focus state */
-  --color-tertiary-hover: 287deg 99% 79%; /* Lightest for hover state */
-  --color-tertiary-text: 0 0% 20%; /* Dark text for contrast */
+  /* Secondary color shades */
+  --color-secondary: 190deg 76.47% 60%; /* Secondary base color */
+  --color-secondary-focus: 190deg 76.47% 65%; /* Focus state: slightly lighter */
+  --color-secondary-hover: 190deg 76.47% 70%; /* Hover state: lightest */
+  --color-secondary-text: 0deg 0% 20%; /* Text on secondary: dark for contrast */
 
-  --color-danger: 0 100% 60%; /* Lighter shade for danger */
-  --color-danger-focus: 0 100% 65%; /* Slightly lighter for focus state */
-  --color-danger-hover: 0 100% 70%; /* Lightest for hover state */
-  --color-danger-text: 0 0% 20%; /* Dark text for contrast */
+  /* Tertiary color shades */
+  --color-tertiary: 287deg 99% 69%; /* Tertiary base color */
+  --color-tertiary-focus: 287deg 99% 74%; /* Focus state: slightly lighter */
+  --color-tertiary-hover: 287deg 99% 79%; /* Hover state: lightest */
+  --color-tertiary-text: 0deg 0% 20%; /* Text on tertiary: dark for contrast */
 
-  --color-warning: 40 100% 60%; /* Lighter shade for warning */
-  --color-warning-focus: 40 100% 65%; /* Slightly lighter for focus state */
-  --color-warning-hover: 40 100% 70%; /* Lightest for hover state */
-  --color-warning-text: 0 0% 20%; /* Dark text for contrast */
+  /* Danger color shades */
+  --color-danger: 0deg 100% 60%; /* Danger base color */
+  --color-danger-focus: 0deg 100% 65%; /* Focus state: slightly lighter */
+  --color-danger-hover: 0deg 100% 70%; /* Hover state: lightest */
+  --color-danger-text: 0deg 0% 20%; /* Text on danger: dark for contrast */
 
-  --color-success: 120 100% 40%; /* Lighter shade for success */
-  --color-success-focus: 120 100% 45%; /* Slightly lighter for focus state */
-  --color-success-hover: 120 100% 50%; /* Lightest for hover state */
-  --color-success-text: 0 0% 20%; /* Dark text for contrast */
+  /* Warning color shades */
+  --color-warning: 40deg 100% 60%; /* Warning base color */
+  --color-warning-focus: 40deg 100% 65%; /* Focus state: slightly lighter */
+  --color-warning-hover: 40deg 100% 70%; /* Hover state: lightest */
+  --color-warning-text: 0deg 0% 20%; /* Text on warning: dark for contrast */
 
-  --color-muted: 0 0% 90%; /* Lighter shade for muted */
-  --color-muted-focus: 0 0% 85%; /* Slightly lighter for focus state */
-  --color-muted-hover: 0 0% 80%; /* Lightest for hover state */
-  --color-muted-text: 0 0% 20%; /* Dark text for contrast */
+  /* Success color shades */
+  --color-success: 120deg 100% 40%; /* Success base color */
+  --color-success-focus: 120deg 100% 45%; /* Focus state: slightly lighter */
+  --color-success-hover: 120deg 100% 50%; /* Hover state: lightest */
+  --color-success-text: 0deg 0% 20%; /* Text on success: dark for contrast */
 
-  --color-disabled: 0 0% 80%; /* Lighter shade for disabled */
+  /* Muted color shades */
+  --color-muted: 0deg 0% 90%; /* Muted base color */
+  --color-muted-focus: 0deg 0% 85%; /* Focus state: slightly lighter */
+  --color-muted-hover: 0deg 0% 80%; /* Hover state: lightest */
+  --color-muted-text: 0deg 0% 20%; /* Text on muted: dark for contrast */
 
-  --color-background: 0 0% 95%; /* Lighter shade for background */
-  --color-textbox: 0 0% 90%; /* Slightly lighter shade for text boxes */
+  /* Disabled and background shades */
+  --color-disabled: 0deg 0% 80%; /* Disabled elements color */
+  --color-background: 0deg 0% 95%; /* Main background color */
+
+  /* Textbox shades */
+  --color-textbox: 0deg 0% 90%; /* Textbox background */
+  --color-textbox-placeholder: 0deg 0% 70%; /* Placeholder text */
 }
 
 @layer base {

@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { AppButton } from "./Button";
+import { Button } from "./Button";
 import { ICON_MAP } from "../../../../.storybook/icons";
 
-const meta: Meta<typeof AppButton> = {
-  component: AppButton,
+const meta: Meta<typeof Button> = {
+  component: Button,
   argTypes: {
     intent: {
       options: [
@@ -66,7 +66,7 @@ const meta: Meta<typeof AppButton> = {
 
 export default meta;
 
-type Story = StoryObj<typeof AppButton>;
+type Story = StoryObj<typeof Button>;
 
 export const Primary: Story = {
   args: {
@@ -79,5 +79,47 @@ export const Secondary: Story = {
   args: {
     children: "Secondary Button",
     intent: "secondary",
+  },
+};
+
+export const Tertiary: Story = {
+  args: {
+    children: "Tertiary Button",
+    intent: "tertiary",
+  },
+};
+
+export const Danger: Story = {
+  args: {
+    children: "Danger Button",
+    intent: "danger",
+  },
+};
+
+export const Warning: Story = {
+  args: {
+    children: "Warning Button",
+    intent: "warning",
+  },
+};
+
+export const Success: Story = {
+  args: {
+    children: "Success Button",
+    intent: "success",
+  },
+};
+
+export const Muted: Story = {
+  args: {
+    children: "Muted Button",
+    intent: "muted",
+  },
+};
+
+export const Loading: Story = {
+  args: {
+    children: "Loading Button",
+    isLoading: true,
   },
 };

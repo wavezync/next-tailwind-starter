@@ -2,12 +2,12 @@ import React from "react";
 import { cn } from "@utils/cn";
 import FormErrorAlert from "../Forms/FormAlert/FormAlert";
 
-export interface AppInputProps
+export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   error?: React.ReactNode;
 }
 
-export const Input = React.forwardRef<HTMLInputElement, AppInputProps>(
+export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (props, ref) => {
     const { error, className, type, ...rest } = props;
 
@@ -18,19 +18,17 @@ export const Input = React.forwardRef<HTMLInputElement, AppInputProps>(
           ref={ref}
           className={cn(
             "peer",
-            "form-input rounded-md border px-5 py-[1.35rem] text-base transition-all",
-            "border-border-gray placeholder:text-inactive-gray",
-            "focus:outline-none  focus:ring-1 focus:ring-red-500",
+            "rounded-md border px-2 py-1.5 text-base transition-all",
+            "placeholder:text-app-textbox-placeholder",
+            "focus:border-app-secondary-focus focus:ring focus:ring-app-secondary-focus focus:ring-opacity-50",
             "bg-app-textbox text-app-primary-text",
-            "mb-2",
-            error
-              ? "border-app-danger focus:border-app-danger focus:ring-app-danger"
-              : "focus:border-primary focus:ring-primary",
+            error &&
+              "border-app-danger bg-app-danger/20 focus:border-app-danger focus:ring-app-danger",
             className,
           )}
           {...rest}
         />
-        {error && <FormErrorAlert message={error} />}
+        {error && <FormErrorAlert message={error} className="mt-1" />}
       </div>
     );
   },

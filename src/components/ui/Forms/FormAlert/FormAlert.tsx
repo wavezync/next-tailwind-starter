@@ -14,7 +14,7 @@ export default function FormErrorAlert({
   return (
     <span
       className={cn(
-        "flex items-center text-left align-middle text-xs text-app-danger peer-invalid:visible",
+        "text-app-danger flex items-center text-left align-middle text-xs peer-invalid:visible",
         className,
       )}
     >

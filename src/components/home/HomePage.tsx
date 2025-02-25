@@ -21,10 +21,10 @@ export const HomePage = () => {
   };
 
   return (
-    <div className="flex h-screen flex-col ">
-      <div className="flex flex-row justify-center bg-app-bg">
-        <div className=" flex min-w-96 flex-col">
-          <div className="m-5 text-center text-app-primary-text">
+    <div className="flex h-screen flex-col">
+      <div className="bg-app-bg flex flex-row justify-center">
+        <div className="flex min-w-96 flex-col">
+          <div className="text-app-primary-text m-5 text-center">
             Welcome to WaveZync NextJS Tailwind StarterKit. <br /> You can
             remove{" "}
             <b className="text-app-tertiary-text">
@@ -33,7 +33,7 @@ export const HomePage = () => {
             and start building your own components.
           </div>
 
-          <h1 className="flex justify-center p-5 text-center align-middle text-5xl font-bold text-app-primary-text">
+          <h1 className="text-app-primary-text flex justify-center p-5 text-center align-middle text-5xl font-bold">
             Products
             <Button
               className="ml-2"
@@ -60,7 +60,7 @@ export const HomePage = () => {
               {data.products.map((p) => (
                 <div
                   key={p.id}
-                  className="mb-2 flex w-full max-w-xl rounded-md p-2 align-middle text-app-primary-text outline transition-all hover:-translate-y-0.5 hover:bg-app-secondary-hover/20"
+                  className="text-app-primary-text hover:bg-app-secondary-hover/20 mb-2 flex w-full max-w-xl rounded-md p-2 align-middle outline transition-all hover:-translate-y-0.5"
                 >
                   <div className="relative h-24 w-32">
                     <Image
@@ -80,7 +80,7 @@ export const HomePage = () => {
                       <span className="pl-1 text-sm font-light italic">
                         {p.price / 100} $
                       </span>
-                      <div className="w-fit rounded-lg bg-app-tertiary/40 px-1 py-0.5 font-mono text-sm italic text-app-primary-text">
+                      <div className="bg-app-tertiary/40 text-app-primary-text w-fit rounded-lg px-1 py-0.5 font-mono text-sm italic">
                         {p.brand}
                       </div>
                     </div>

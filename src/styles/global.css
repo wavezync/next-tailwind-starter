@@ -1,0 +1,172 @@
+@import 'tailwindcss';
+
+@plugin '@tailwindcss/typography';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/container-queries';
+
+@theme {
+  --color-app-primary: hsl(var(--color-primary));
+  --color-app-primary-focus: hsl(var(--color-primary-focus));
+  --color-app-primary-hover: hsl(var(--color-primary-hover));
+  --color-app-primary-text: hsl(var(--color-primary-text));
+
+  --color-app-secondary: hsl(var(--color-secondary));
+  --color-app-secondary-focus: hsl(var(--color-secondary-focus));
+  --color-app-secondary-hover: hsl(var(--color-secondary-hover));
+  --color-app-secondary-text: hsl(var(--color-secondary-text));
+
+  --color-app-tertiary: hsl(var(--color-tertiary));
+  --color-app-tertiary-focus: hsl(var(--color-tertiary-focus));
+  --color-app-tertiary-hover: hsl(var(--color-tertiary-hover));
+  --color-app-tertiary-text: hsl(var(--color-tertiary-text));
+
+  --color-app-success: hsl(var(--color-success));
+  --color-app-success-focus: hsl(var(--color-success-focus));
+  --color-app-success-hover: hsl(var(--color-success-hover));
+  --color-app-success-text: hsl(var(--color-success-text));
+
+  --color-app-warning: hsl(var(--color-warning));
+  --color-app-warning-focus: hsl(var(--color-warning-focus));
+  --color-app-warning-hover: hsl(var(--color-warning-hover));
+  --color-app-warning-text: hsl(var(--color-warning-text));
+
+  --color-app-danger: hsl(var(--color-danger));
+  --color-app-danger-focus: hsl(var(--color-danger-focus));
+  --color-app-danger-hover: hsl(var(--color-danger-hover));
+  --color-app-danger-text: hsl(var(--color-danger-text));
+
+  --color-app-muted: hsl(var(--color-muted));
+  --color-app-muted-focus: hsl(var(--color-muted-focus));
+  --color-app-muted-hover: hsl(var(--color-muted-hover));
+  --color-app-muted-text: hsl(var(--color-muted-text));
+
+  --color-app-disabled: hsl(var(--color-disabled));
+  --color-app-bg: hsl(var(--color-background));
+
+  --color-app-textbox: hsl(var(--color-textbox));
+  --color-app-textbox-placeholder: hsl(var(--color-textbox-placeholder));
+
+  --font-sans: var(--font-inter);
+  --font-sans--0: ui-sans-serif;
+  --font-sans--1: system-ui;
+  --font-sans--2: sans-serif;
+  --font-sans--3: 'Apple Color Emoji';
+  --font-sans--4: 'Segoe UI Emoji';
+  --font-sans--5: 'Segoe UI Symbol';
+  --font-sans--6: 'Noto Color Emoji';
+  --font-sans--length: 7;
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+/* Refer: https://tailwindcss.com/docs/customizing-colors#using-css-variables */
+/* Use HSL colors as they are modern, in here you need to separate the commas as spaces */
+/* Check above url for more details */
+
+/* when defining colors, you must use --color- prefix to use them in tailwindcss with modifiers */
+
+:root[data-theme="light"],
+:root {
+  /* Light Theme Variables */
+
+  /* Primary color shades */
+  --color-primary: 197.53deg 89.9% 55%; /* Primary base color */
+  --color-primary-focus: 198deg 83% 60%; /* Focus state: slightly lighter */
+  --color-primary-hover: 195deg 81% 65%; /* Hover state: lightest */
+  --color-primary-text: 0deg 0% 20%; /* Text on primary: dark for contrast */
+
+  /* Secondary color shades */
+  --color-secondary: 190deg 76.47% 60%; /* Secondary base color */
+  --color-secondary-focus: 190deg 76.47% 65%; /* Focus state: slightly lighter */
+  --color-secondary-hover: 190deg 76.47% 70%; /* Hover state: lightest */
+  --color-secondary-text: 0deg 0% 20%; /* Text on secondary: dark for contrast */
+
+  /* Tertiary color shades */
+  --color-tertiary: 287deg 99% 69%; /* Tertiary base color */
+  --color-tertiary-focus: 287deg 99% 74%; /* Focus state: slightly lighter */
+  --color-tertiary-hover: 287deg 99% 79%; /* Hover state: lightest */
+  --color-tertiary-text: 0deg 0% 20%; /* Text on tertiary: dark for contrast */
+
+  /* Danger color shades */
+  --color-danger: 0deg 100% 60%; /* Danger base color */
+  --color-danger-focus: 0deg 100% 65%; /* Focus state: slightly lighter */
+  --color-danger-hover: 0deg 100% 70%; /* Hover state: lightest */
+  --color-danger-text: 0deg 0% 20%; /* Text on danger: dark for contrast */
+
+  /* Warning color shades */
+  --color-warning: 40deg 100% 60%; /* Warning base color */
+  --color-warning-focus: 40deg 100% 65%; /* Focus state: slightly lighter */
+  --color-warning-hover: 40deg 100% 70%; /* Hover state: lightest */
+  --color-warning-text: 0deg 0% 20%; /* Text on warning: dark for contrast */
+
+  /* Success color shades */
+  --color-success: 120deg 100% 40%; /* Success base color */
+  --color-success-focus: 120deg 100% 45%; /* Focus state: slightly lighter */
+  --color-success-hover: 120deg 100% 50%; /* Hover state: lightest */
+  --color-success-text: 0deg 0% 20%; /* Text on success: dark for contrast */
+
+  /* Muted color shades */
+  --color-muted: 0deg 0% 90%; /* Muted base color */
+  --color-muted-focus: 0deg 0% 85%; /* Focus state: slightly lighter */
+  --color-muted-hover: 0deg 0% 80%; /* Hover state: lightest */
+  --color-muted-text: 0deg 0% 20%; /* Text on muted: dark for contrast */
+
+  /* Disabled and background shades */
+  --color-disabled: 0deg 0% 80%; /* Disabled elements color */
+  --color-background: 0deg 0% 95%; /* Main background color */
+
+  /* Textbox shades */
+  --color-textbox: 0deg 0% 90%; /* Textbox background */
+  --color-textbox-placeholder: 0deg 0% 70%; /* Placeholder text */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="dark"] {
+    /* Dark Theme Variables */
+
+    /* Primary color shades */
+    --color-primary: 197.53deg 89.9% 15%; /* Primary base color */
+    --color-primary-focus: 198deg 83% 12%; /* Focus state: even darker */
+    --color-primary-hover: 195deg 81% 10%; /* Hover state: darkest */
+    --color-primary-text: 0deg 0% 100%; /* Text on primary: white for contrast */
+
+    /* Secondary color shades */
+    --color-secondary: 190deg 76.47% 30%; /* Secondary base color */
+    --color-secondary-focus: 190deg 76.47% 25%; /* Focus state: even darker */
+    --color-secondary-hover: 190deg 76.47% 20%; /* Hover state: darkest */
+    --color-secondary-text: 0deg 0% 100%; /* Text on secondary: white for contrast */
+
+    /* Tertiary color shades */
+    --color-tertiary: 287deg 99% 39%; /* Tertiary base color */
+    --color-tertiary-focus: 287deg 99% 34%; /* Focus state: even darker */
+    --color-tertiary-hover: 287deg 99% 29%; /* Hover state: darkest */
+    --color-tertiary-text: 0deg 0% 100%; /* Text on tertiary: white for contrast */
+
+    /* Danger color shades */
+    --color-danger: 0deg 100% 40%; /* Danger base color */
+    --color-danger-focus: 0deg 100% 35%; /* Focus state: even darker */
+    --color-danger-hover: 0deg 100% 30%; /* Hover state: darkest */
+    --color-danger-text: 0deg 0% 100%; /* Text on danger: white for contrast */
+
+    /* Background and textbox shades */
+    --color-background: 210deg 30% 8%; /* Main background: deep, muted blue */
+    --color-textbox: 210deg 30% 10%; /* Textbox background: slightly lighter */
+    --color-textbox-placeholder: 210deg 30% 30%; /* Placeholder text: lighter */
+  }
+}

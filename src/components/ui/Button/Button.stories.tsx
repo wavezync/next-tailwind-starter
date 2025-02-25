@@ -46,8 +46,8 @@ const meta: Meta<typeof Button> = {
       options: [
         "default",
         "pill",
-        "rounded",
         "rounded-sm",
+        "rounded-xs",
         "rounded-md",
         "rounded-lg",
       ],

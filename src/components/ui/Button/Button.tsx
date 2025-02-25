@@ -134,10 +134,10 @@ export interface ButtonProps
   className?: string;
   isLoading?: boolean;
   loadingText?: string;
-  spinner?: React.ReactElement;
+  spinner?: React.ReactElement<any>;
   spinnerLocation?: ButtonSpinnerLocation;
-  leftIcon?: React.ReactElement;
-  rightIcon?: React.ReactElement;
+  leftIcon?: React.ReactElement<any>;
+  rightIcon?: React.ReactElement<any>;
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(

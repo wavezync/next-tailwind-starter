@@ -12,13 +12,13 @@ export const fetchProductsList = async ({
   skip,
   search,
 }: FetchProductsListArgs = {}) => {
-  const { data } = await apiClient.get<PaginatedProducts>("/products/search", {
-    params: {
-      limit,
-      skip,
-      q: search,
-    },
-  });
-
-  return data;
+  return await apiClient
+    .get<PaginatedProducts>("products/search", {
+      searchParams: new URLSearchParams({
+        limit: (limit ?? 10).toString(),
+        skip: (skip ?? 0).toString(),
+        q: search ?? "",
+      }),
+    })
+    .json();
 };

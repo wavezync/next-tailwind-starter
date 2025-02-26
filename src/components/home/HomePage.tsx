@@ -1,15 +1,14 @@
 import { useTheme } from "@/contexts/ThemeContext";
-import { useProductsQuery } from "@api/products/hooks/useProductsQuery";
+import { queries } from "@api/products/queries";
 import { Button } from "@components/ui/Button/Button";
 import { Input } from "@components/ui/Input/Input";
+import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import { useState } from "react";
 
 export const HomePage = () => {
   const [search, setSearch] = useState("");
-  const { data, isLoading } = useProductsQuery({
-    search,
-  });
+  const { data, isLoading } = useQuery(queries.products.search({ search }));
   const { theme, setTheme } = useTheme();
 
   const toggleTheme = () => {

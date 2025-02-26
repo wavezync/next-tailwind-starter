@@ -13,7 +13,7 @@ import { DefaultSeo, DefaultSeoProps } from "next-seo";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { NextPage } from "next/types";
 
-// eslint-disable-next-line @typescript-eslint/ban-types
+// eslint-disable-next-line  @typescript-eslint/no-empty-object-type
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement<any>) => ReactNode;
 };

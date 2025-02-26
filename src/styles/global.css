@@ -81,8 +81,7 @@
 
 /* when defining colors, you must use --color- prefix to use them in tailwindcss with modifiers */
 
-:root[data-theme="light"],
-:root {
+:root[data-theme="light"] {
   /* Light Theme Variables */
 
   /* Primary color shades */
@@ -137,7 +136,8 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root[data-theme="dark"] {
+  :root[data-theme="dark"],
+  :root {
     /* Dark Theme Variables */
 
     /* Primary color shades */
